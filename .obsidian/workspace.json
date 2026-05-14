@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IT Languges/TS/Days/2 week/Day 1 — Typescript & Next JS.md",
+                "file": "IT Languges/TS/Days/2 week/Day 2 — Untility types & Next Js.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day 1 — Typescript & Next JS"
+              "title": "Day 2 — Untility types & Next Js"
             }
           }
         ]
@@ -198,25 +198,28 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c42aafd73f7afa59",
+  "active": "44607999e940ce20",
   "lastOpenFiles": [
     "IT Languges/TS/Days/2 week/Day 1 — Typescript & Next JS.md",
+    "IT Languges/TS/Days/2 week/Day 2 — Untility types & Next Js.md",
+    "IT Languges/TS/Next Js Roadmap.md",
+    "IT Languges/TS/TypeScript Roadmap.md",
+    "_files/typescript.png",
+    "English/Days/2 week/Day 2 — English.md",
+    "English/Days/2 week/Day 1 — English.md",
+    "English/Days/1 week/Day 4 — English.md",
+    "English/Days/1 week/Day 5 — English.md",
+    "English/Days/1 week/Day 7 — English.md",
+    "English/Days/1 week/Day 6 — English.md",
     "adaddadada.md",
     "Chacking git",
     "dasdada",
     "Main/README.md",
     "Main",
-    "IT Languges/TS/TypeScript Roadmap.md",
-    "IT Languges/TS/Next Js Roadmap.md",
     "IT Languges/TS/Days/1 week/Day 7 — Generic and Routing.md",
     "IT Languges/TS/Days/1 week/Day 6 — Classes and Next JS.md",
-    "English/Days/2 week/Day 1 — English.md",
     "IT Languges/TS/Days/2 week",
-    "English/Days/1 week/Day 7 — English.md",
-    "English/Days/1 week/Day 5 — English.md",
-    "English/Days/1 week/Day 4 — English.md",
     "English/Days/1 week/Day 3 — English.md",
-    "English/Days/1 week/Day 6 — English.md",
     "English/Days/2 week",
     "IT Languges/TS/Days/1 week/Day 1 — Object types.md",
     "English/Days/1 week/Day 1 — English.md",
@@ -231,15 +234,11 @@
     "IT Languges/TS/Days/Drawing 2026-05-10 15.56.11.excalidraw.md",
     "_files/Next JS Roadmap.png",
     "Excalidraw/Drawing 2026-05-10 15.57.21.excalidraw.md",
-    "templates/English learning.md",
     "Excalidraw",
-    "MATH.md",
-    "IT Languges/TS/Days/Day 5 — Typescript functions.md",
     "_files/main 1.ts",
     "_files/main.ts",
     "_files/TS.png",
     "IT Languges/TS/TypeScript RoadMap.canvas",
-    "_files/typescript.png",
     "_files/Pasted image 20260501221051.png",
     "_files/Pasted image 20260427130425.png",
     "_files/Pasted image 20260426135629.png",

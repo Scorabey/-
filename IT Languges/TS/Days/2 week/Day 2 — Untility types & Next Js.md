@@ -1,11 +1,11 @@
 ---
-language: TypeScript
+language: typescript
 category: Frontend
 difficulty: Intermediate
 status: Завершено
-started: 2026-05-13
-last_reviewed: 2026-05-13
-next_review: 2026-05-13
+started: 2026-05-14
+last_reviewed: 2026-05-14
+next_review: 2026-05-14
 total_hours: 2
 progress: 100
 rating: 4
@@ -19,11 +19,11 @@ tags:
 
 | Поле               | Значення     |
 | ------------------ | ------------ |
-| 🏷️ Мова           | TypeScript   |
+| 🏷️ Мова           | typescript   |
 | 📂 Категорія       | Frontend     |
 | ⚡ Складність       | Intermediate |
 | 🎯 Статус          | Завершено    |
-| 📅 Початок         | 2026-05-13   |
+| 📅 Початок         | 2026-05-14   |
 | ⏱️ Годин витрачено | 2            |
 
 ---
@@ -31,101 +31,222 @@ tags:
 ## 🗺️ Roadmap навчання
 
 ### Пройдені теми: 
-- [x] Decorators
 - [x] Untility types
-	- [x] Pick
-	- [x] Readonly
-	- [x] Exclude
-	- [x] Awaited
-- [x] Next JS API Fetch Data
+	- [x] Partial
+	- [x] Omit
+	- [x] Record 
+	- [x] Extract
+	- [x] Parameters
+	- [x] NonNullable
+	- [x] ReturnType
+	- [x] InstanceType
+- [x] Next Js
+	- [x] API Routes
+	- [x] Custom Errors
 ---
 
 ## 📚 Ресурси для навчання
 
 ### Документація
-- [Decorators](https://www.typescriptlang.org/docs/handbook/decorators.html#parameter-decorators)
 - [Untility types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)
 - [Custom errors](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
 
 ### Відео курси
 - [Next JS Course](https://youtube.com/playlist?list=PL0lO_mIqDDFXAbfgj6lcK8cRu6yFdQgnR&si=BKRfupMIT87-WIEu)
+
 ---
 
 ## 🧠 Вивчені концепції
 
-### Синтаксис
+### Синтаксис | Typescript
 
 ```typescript
-// Pick
+// Partial 
+interface Todo {
+    title: string
+    description: string
+}
+  
+const updateTodo = (todo: Todo, fieldsToUpdate: Partial<Todo>) => {
+    return { ...todo, ...fieldsToUpdate }
+}
+
+// Omit 
+interface Type {
+    title: string
+    id: number
+    description: string
+}
+  
+type User = Omit<Type, "id">
+  
+const user: User = {
+    title: "Title",
+    description: "Description"
+}
+
+// Record
+type CatName = "miffy" | "boris" | "mordred"
+  
+interface CatInfo {
+    age: number
+    breed: string
+}
+  
+const cats: Record<CatName, CatInfo> = {
+    miffy: { age: 6, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
+}
+
+// Extract
+type UserFields = "id" | "age" | "name" | "surName"
+  
+type User = "age" | "name"
+  
+type NewUser = Extract<UserFields, User>
+  
+const user: NewUser = "age"
+
+// Parameters
+const createUser = (id: number, name: string, age: number): void => {}
+  
+type UserProp = Parameters<typeof createUser>
+  
+const newUser: UserProp = [123, "string", 123]
+
+// NonNullable
+
+type UserTypes = number | string[] | null
+  
+type User = NonNullable<UserTypes>
+  
+const user1: User = 313
+  
+const user2: User = ["dadada"]
+  
+const user3: User = [313] // False: Type 'number' is not assignable to type 'string'.
+
+// ReturnType
 interface User {
-  id: number
-  name: string
-  email: string
-  password: string
-  createdAt: Date
+    id: number
+    age: number
+    name: string
 }
   
-type PickUser = Pick<User, 'id' | 'name'>
-// Readonly
-type config = Readonly<{
-    host: string
-    port: number
-}>
-  
-const cfg: config = {
-    host: 'localhost',
-    port: 3000
+const CreateUser = (id: number, age: number, name: string): User => {
+    return { id, age, name }
 }
-// Exclude
-type Pet = 'fish' | 'dog' | 'cat'
+  
+type FirstUser = ReturnType<typeof CreateUser>
 
-type NoDog = Exclude<Pet, 'dog'>
-// Awaited
-async function  getUser() {
-    return { id: 1, name: "Alex" }
+// InstanceType
+class PublicUserClass {
+    constructor(public id: number, public name: string) {}
 }
   
-type User = Awaited<Promise<typeof getUser>>
+type User = InstanceType<typeof PublicUserClass>
+  
+const firstUser: User = new PublicUserClass(18, "alex")
 ```
-
-#### **Нотатки:**
-> **Pick** — Вибирає з вхідного типа тільки ті ключи що були вказані
-> **Readonly** — Дозволяє створити тип, в якому буде заборонено змінювати дані
-> **Exclude** — Вирізає вибрані варіанти з об'єднань union типів
-> **Awaited** — Використовується для моделювання очікування в асинхроних функціях
 
 ---
 
-### Типи даних
+### Типи даних | Typescript
 
 ```typescript
-// Pick
-type PickUser = Pick<T, K>; // T — тип, наприклад інтерфейс, а K - ключі які нам потрібні
-// Readonly
-type cfg: Readonly<{
-	key: type
-}>;
-// Exclude
-type name = Exclude<Type, Key>;
-// Awaited
-type First = Awaited<Promise<string>>;
+// Partial
+interface Todo extends Partial<Type> {
+	// Code
+}
+
+// Omit
+interface Todo {
+	id: number
+	title: string
+	description: string
+}
+
+type PrewievTodo = Omit<Todo, "id">
+
+// Record
+type Name = "Alex" 
+
+interface Age {
+	age: number
+}
+
+const firstUser: Record<Name, Age> = {
+	Alex: { age: 31 }
+}
+
+// Extract
+type User = Extract<Type, Union>
+
+// Parameters
+
+const Function = (num, str, num): void => {}
+
+type Type = Parameters<typeof Function>
+
+const User: User = [number, string, number]
+
+// NonNullable
+type UserTypes = number | string[] | null
+  
+type User = NonNullable<UserTypes>
+
+// ReturnType
+type Type = ReturnType<typeof Function>
 ```
+
+#### **Нотатки:**
+> Partial — перебирає всі типи, роблячи ії опціональними, тобто не обов'язковими
+> Omit — Видялає тип вказаного інтерфейса за ключом, синтаксис: ==Omit<Type, Key>==
+> Record — перебирає всі ключи та типи, й робить з них окремий тип, або обьект, синтаксис: ==Record<Key, Type>==
+> Extract — Витягує з типа лише ті значення, що є в Union
+> Parameters — Витягуэ типи у вигляды кортежу, тобто як массив
+> NonNullable — Витягує з типа, типи null & undefined
+> ReturnType — Повертає той тип, який повертає функція
+> InstanceType — Витягуэ тип екземпляра класса з його конструктора
+
+---
+
+### Синатксис | Next JS
+
+```typescript
+export default function NotFound() {
+  return (
+    <div>
+      <h2>404 — Page not found!</h2>
+    </div>
+  )
+}
+```
+
+#### **Нотатки:**
+> Для того щоб сторінка працювала вона повина лежати в папці ==app/== під назвою ==not-found==
 
 ---
 
 ## 📝 Щоденник навчання
 
-### 2026-05-13 — Початок
+### 2026-05-14 — Початок
 
 ### **Що вивчав:**
-- Decorators
 - Untility types
-	- Pick
-	- Readonly
-	- Exclude
-	- Awaited
-- Next JS API Fetch Data
+- Partial
+- Omit
+- Record 
+- Extract
+- Parameters
+- NonNullable
+- ReturnType
+- InstanceType
+- Next Js
+- API Routes
+- Custom Errors
 
 ### **Час (год):** 
 2 години
@@ -345,4 +466,4 @@ if (related.length > 0) {
 
 ---
 
-*Шаблон створено: 2026-05-13 | Оновлено: 2026-05-13
+*Шаблон створено: 2026-05-14 | Оновлено: 2026-05-14
