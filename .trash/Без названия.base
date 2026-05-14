@@ -1,0 +1,7 @@
+formulas:
+  Без названия: ""
+views:
+  - type: table
+    name: Таблица
+    order:
+      - formula.Без названия

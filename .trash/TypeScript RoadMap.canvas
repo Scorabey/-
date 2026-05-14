@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"59041e90de555c76","type":"file","file":"_files/typescript.png","x":-1220,"y":-1067,"width":692,"height":1455,"color":"1"},
+		{"id":"d21bb6f3adcd5cdf","type":"file","file":"IT Languges/TS/Days/Day 1 —.md","x":-320,"y":-1067,"width":400,"height":80}
+	],
+	"edges":[
+		{"id":"da9e63a96131a449","fromNode":"59041e90de555c76","fromSide":"right","toNode":"d21bb6f3adcd5cdf","toSide":"left"}
+	]
+}
