@@ -1,12 +1,12 @@
 ---
 language: Typescript
 category: Frontend
-difficulty: Beginner
+difficulty: Advanced
 status: Завершено
-started: 2026-05-06
-last_reviewed: 2026-05-06
-next_review: 2026-05-06
-total_hours: 1.5
+started: 2026-05-16
+last_reviewed: 2026-05-16
+next_review: 2026-05-16
+total_hours: 2
 progress: 100
 rating: 4
 tags:
@@ -21,181 +21,26 @@ tags:
 | ------------------ | ---------- |
 | 🏷️ Мова           | Typescript |
 | 📂 Категорія       | Frontend   |
-| ⚡ Складність       | Beginner   |
+| ⚡ Складність       | Advanced   |
 | 🎯 Статус          | Завершено  |
-| 📅 Початок         | 2026-05-06 |
-| ⏱️ Годин витрачено | 1.5        |
+| 📅 Початок         | 2026-05-16 |
+| ⏱️ Годин витрачено | 2          |
 
----
-
-## 🗺️ Roadmap навчання
-
-### Фаза 1: Основи (Beginner)
-- [x]  As type
-- [x] compiler options
-- [x] As const
-- [x] As any
-- [x] Non-null Assertion
-- [x] Satisfies keyword
 ---
 
 ## 📚 Ресурси для навчання
 
-### Документація
-- [Compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-
-### Корисні сайти
-- [As type](https://claude.ai/chat/09523192-d2e8-4ef4-9a73-fb2669f39c9f)
-- [As type](https://dev.to/starneit/understanding-typescript-as-keyword-2ne4)
-
----
-
-## 🧠 Вивчені концепції
-
-### Синтаксис
-
-```typescript
-// As type
-const value: unknown = "Hello world"
-const str = value as string
-
-// Базове приведення типів
-const input = dicument.getElementById("name") as HTMLInputElement
-input.value = "Hello world!"
-
-// Приведення unknown до конкретного типу
-const data: unknown = JSON.parse('{"name: John"}')
-const user = data as {name: string}
-
-// as const — робить значення не зміним
-const colors = ["red", "green", "blue"] as const
-// Тип: readonly ["red", "green", "blue"]
-// Без as const тип був би: string[]
-
-// Satisfies
-type Color = "Red" | "Blue" | "Green"
-  
-const userSelectColor = {
-    Red: [128, 0, 255],
-    Blue: "#1100ff",
-    Green: [255, 0, 128]
-} satisfies Record<Color, number[] | string>
-```
-
-#### **Нотатки:**
-> As - це оператор приведення типів ( Type assertion ). Він дозволяє вказати компілятору за який тип данних важати змінну ( він не змінює сам тип зміної )
-> 	Використовується в тому випадку, якщо тип елемента відомий нам, але не відомий компілятору.
-> Недоліки: 
-> 	1. Може привести до помилок, компілятор змушений прийняти тип, навіть якщо він неправильний
-> 	2. Він може вимкнути перевірку типів. Це може ускладнити виявлення перевірку типів
-> 	3. Код може стати менш читабельним.
-> 	4. Надмірне використання, як показує, що код погано виконаний з архітектурної точки зору
-> Приведення типа as any просто виключає перевірку типів при компіляції, но якщо тип буде невірним рантайм впаде с помилкою: ==runtime: Cannot read properties of undefined==
-
----
-
-### **strict**
-#### **Опис:**
-> Самий головний прапор, який включає `strictNullChecks`, `noImplicitAny`, `strictFunctionTypes` і т.д. Без нього TS пропускає багато помилок, наприклад любому змінній можна присвоїти null
-
-```typescript
-const user = {name: 'Joe'} = null
-user.name // TypeError
-
-// З strict помилка буде при компіляції
-// Type 'null' is not assignable to type '{ name: string }'
-```
-### Target
-#### **Опис:**
-> У якій версії JS вийде скомпільований код
-
-### **module**
-#### **Опис:**
-> Система модулів для підсумкового JS
-
-```typescript
-// module: "CommonJS"
-import { foo } from '.bar'
-// → const { foo } = require('./bar')
-
-// module: "ESNext"
-import { foo } from './bar' // залишається
-```
-### **moduleResolution**
-#### **Опис:**
-> Як TypeScript шукає файли за імпортами
-
-```typescript
-// moduleResolution: "NodeNext"
-// розуміє поле "exports" у package.json
-// потребує явних розширень у .ts файлах:
-import { foo } from './bar.js' // ✓
-
-// moduleResolution: "Bundler"
-import { foo } from './bar'   // ✓ без розширення
-```
-### **esModuleInterop**
-#### **Опис:**
-> Нормальний імпорт CommonJS-бібліотек
-
-```typescript
-// esModuleInterop: false
-import * as React from 'react'; // незручно
-
-// esModuleInterop: true
-import React from 'react';   // ✓ як зазвичай
-```
-### **skipLibCheck**
-#### **Опис:**
-> Не перевіряти типи в .d.ts залежностей
-
-```typescript
-// Типовий мінімальний tsconfig.json:
-{
-  "compilerOptions": {
-    "strict": true,
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
-}
-```
-
-### Синтаксис
-
-```typescript
-// Non-null assertion 
-let value: string | null = getValue();
-console.log(value!.length)
-
-// Приклади
-const input = document.getElementBtId('email');
-input.value; // Error: input can be null
-
-const input = document.getElementBtId('email')!;
-input.value; // OK
-```
-
-#### **Нотатки:**
->Non-null Assertion використовується для того, щоб сказати компілятору, що ми знаєм що значення не null
+### Практика / Завдання
+- [Next-Js-Training-Project](https://github.com/Scorabey/Next-Js-Training-Project)
 ---
 
 ## 📝 Щоденник навчання
 
-### 2026-05-06 — Початок
-
-### **Що вивчав:**
-- As type
-- compiler options
-- As const
-- As any
-- Non-null Assertion
-- Satisfies keyword
+### 2026-05-16 — Початок
 
 ### **Час (год):** 
--  1 година 30 хвилин
+2 години
+
 ---
 
 ## 📊 Статистика прогресу
@@ -411,4 +256,4 @@ if (related.length > 0) {
 
 ---
 
-*Шаблон створено: 2026-05-06 | Оновлено: 2026-05-06
+*Шаблон створено: 2026-05-16 | Оновлено: 2026-05-16
